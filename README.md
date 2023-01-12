@@ -1,19 +1,23 @@
-# 05-rutas-ciclo
+# Life cycle hooks (options API)
 
 ## Project setup
+
 ```
 yarn install
 ```
 
+or sumply
+
+```
+yarn
+```
+
 ### Compiles and hot-reloads for development
+
 ```
 yarn serve
 ```
 
-### Compiles and minifies for production
-```
-yarn build
-```
+_Important libraries used_
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- [vue-router](https://router.vuejs.org/)

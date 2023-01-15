@@ -1,17 +1,35 @@
 <template>
   <div id="navbar">
     <div class="navbar-container">
-      <router-link to="/">Pokemon List</router-link>
+      <!-- <router-link :to="{ name: 'home' }">Pokemon List</router-link>
       <router-link :to="{ name: 'pokemon-id', params: { id: 58 } }"
         >Pokemon by id</router-link
       >
-      <router-link to="/about">About</router-link>
+      <router-link :to="{ name: 'about' }">About</router-link> -->
+      <custom-link v-for="link of links" :key="link.to" :link="link" />
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import { defineAsyncComponent } from 'vue';
+
+export default {
+  components: {
+    CustomLink: defineAsyncComponent(() => import('./CustomLink')),
+  },
+
+  data() {
+    return {
+      links: [
+        { to: '/home', name: 'Pokemons' },
+        { to: '/pokemonid/50', name: 'By id' },
+        { to: '/about', name: 'About' },
+        { to: 'https://google.com', name: 'Google' },
+      ],
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -20,14 +38,7 @@ export default {};
   justify-content: center;
 }
 
-.navbar-container a {
-  font-weight: bold;
-  color: #2c3e50;
-  margin: 0 10px;
-  text-decoration: none;
-}
-
-a.router-link-active {
+/*a.router-link-active {
   border-bottom: 2px solid #42b983;
-}
+}*/
 </style>
